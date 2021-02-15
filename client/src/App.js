@@ -1,12 +1,17 @@
 import './App.css';
-import MemeForm from "./components/MemeForm";
-import MemeDetail from "./components/MemeDetail"
+import MemeForm from "./components/MemeForm/MemeForm"
+import MemeDetail from "./components/MemeDetail/MemeDetail"
+import { BrowserRouter, Route } from "react-router-dom"
+import Navbar from "./components/Navbar/Navbar"
 function App() {
   return (
     <div className="App">
-      <h1 className={classes.title} >X-MEME</h1>
-      <MemeForm/>
-      <MemeDetail/>
+      <h1>X-MEME</h1>
+      <BrowserRouter>
+        <Navbar />
+        <Route exact path="/" component={MemeDetail} />
+        <Route exact path="/post" component={MemeForm} />
+      </BrowserRouter>
     </div>
   );
 }
