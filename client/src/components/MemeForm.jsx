@@ -7,7 +7,7 @@ export default function Memeform() {
   const classes = useStyles();
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => {
-    axios.post("https:///memes", data).then((res) => {
+    axios.post("https://memecriobackend.herokuapp.com/", data).then((res) => {
       console.log(res);
     });
   };

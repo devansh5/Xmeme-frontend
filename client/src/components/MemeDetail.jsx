@@ -24,7 +24,7 @@ export default function Memedetail() {
     console.log(data);
     setShowUpdate(false);
     axios
-      .patch(`https://x-maymay.herokuapp.com/memes/${id}`, data)
+      .patch(`https://memecriobackend.herokuapp.com/${id}`, data)
       .then((res) => {
         console.log(res);
       });
@@ -33,7 +33,7 @@ export default function Memedetail() {
 
   useEffect(() => {
     axios
-      .get("https://tranquil-cove-10539.herokuapp.com/memes")
+      .get("https://memecriobackend.herokuapp.com/")
       .then((res) => setMeme(res.data));
   }, []);
 

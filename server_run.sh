@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-cd devkumar5436-me_buildout_xmeme/backend
+cd server
 
 
 # Setup DB or any other environment variables you want to setup.
@@ -9,4 +9,4 @@ cd devkumar5436-me_buildout_xmeme/backend
 
 npm install
 
-npm run
+npm start
