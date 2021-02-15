@@ -2,12 +2,19 @@ require('dotenv').config()
 const Pool=require('pg').Pool
 
 
-const isProduction = process.env.NODE_ENV === 'production'
+// const isProduction = process.env.NODE_ENV === 'production'
 
-const connectionString = `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`
+// const connectionString = `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`
+// const pool = new Pool({
+//   connectionString:isProduction?connectionString:process.env.DATABASE_URL,
+//   ssl: isProduction
+// })
 const pool = new Pool({
-  connectionString:isProduction?connectionString:process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
+  user: 'postgres',
+  host: 'localhost',
+  database: 'postgres',
+  password: '1234',
+  port: 5432,
 })
 const queryText=`CREATE TABLE IF NOT EXISTS memes(id SERIAL PRIMARY KEY,name VARCHAR(100),url VARCHAR(300) UNIQUE,caption VARCHAR(200) UNIQUE);`
 pool.query(queryText)

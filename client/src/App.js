@@ -1,11 +1,12 @@
 import './App.css';
-
+import MemeForm from "./components/MemeForm";
+import MemeDetail from "./components/MemeDetail"
 function App() {
   return (
     <div className="App">
       <h1 className={classes.title} >X-MEME</h1>
-      <Memeform/>
-      <Memedetail/>
+      <MemeForm/>
+      <MemeDetail/>
     </div>
   );
 }
