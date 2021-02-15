@@ -2,16 +2,19 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import  "./meme.module.css";
 import axios from 'axios'
+import { useHistory } from "react-router"
 
 
 function Meme() {
   const { register, handleSubmit, errors } = useForm();
+  let history=useHistory();
   const onSubmit = (data) => {
     console.log(data);
     axios.post('https://memecriobackend.herokuapp.com/memes',data)
     .then(res=>{
         console.log(res)
-        window.location.reload();
+        
+        history.push("/")
     })
     
   
